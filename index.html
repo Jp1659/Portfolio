@@ -4,8 +4,763 @@
   <meta charset="UTF-8" />
   <title>Portfolio Website</title>
   <link rel="stylesheet" href="style.css" />
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300&display=swap");
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:"Be Vietnam Pro",sans-serif;
+  scroll-behavior: smooth;
+}
+.wrapper{
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.container{
+  width: 85%;
+  margin: 0 auto;
+}
+.main-nav{
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+  align-items: center;
+}
+.nav{
+  display: flex;
+  justify-content: center;
+
+}
+.logo{
+  height:80px;
+}
+.logo-content{
+display:flex;
+flex-direction:row;
+align-items: center;
+}
+.logo-text{
+  margin-top: 1rem;
+  margin-left: -0.9rem;
+  font-size: 24px;
+}
+.nav-itms{
+  display: flex;
+  gap: 2rem;
+  padding: 0 4rem;
+}
+.nav-itms div{
+  font-family:"Be Vietnam Pro";
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.nav-itms div a{
+  color:black;
+  transition: 0.7s;
+}
+a{
+  text-decoration: none;
+}
+.nav-itms div:hover{
+  font-weight: bold;
+  
+}
+.hero-section{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:5rem;
+  margin: 4rem auto;
+  padding: 0 1rem;
+  padding-bottom: 8rem; 
+}
+
+
+.faded-text{
+  user-select: none;
+  font-size: 6rem;
+  color:rgb(231,231,231) ;
+  bottom:-15.5%;
+  left:1%;
+  font-weight: bold;
+  transition: all 3s; 
+}
+.hero-section-left{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:start;
+  gap:2rem;
+  width: 110rem;
+}
+.hero-section-heading{
+  font-size: 35px;
+  color: #343d48;
+  font-weight: 500;
+  }
+.role{
+  color: #4e45d5 ;
+  font-weight:800;
+}
+.hero-section-sub-heading{
+  font-size: 45px;
+  line-height: 45px;
+}
+.hero-section-dec{
+ margin-top: 1rem;
+  width: 70%;
+  font-weight: 500;
+}
+.btn-hire{
+    
+    width:fit-content;
+   padding: 0.8rem 2.3rem;
+    
+    background-color :#e84949;;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 5px 5px 7px #000003;
+    border:0;
+    position: relative;
+    z-index: 1;
+}
+.btn-hire:hover{
+  color: #000003;
+}
+.btn-hire::before{
+   content: "";
+    background-color: #f7f7f8;
+    background-size: cover;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: scaleX(0);
+    transform-origin:left;
+    transition: all 1s;
+    z-index:-5;
+}
+.btn-hire:hover::before{
+    transform: scaleX(1); 
+}
+.hero-section-right{
+  position: relative;
+}
+.absolute{
+  position: absolute;
+}
+#userImage{
+ width: 24rem;
+  padding: 2.5rem;
+  filter: grayscale(1);
+  transition: all 1s;
+  animation: scaleimg 5s linear infinite;
+}
+#userImage img{
+  z-index:-1;
+} 
+@keyframes scaleimg{
+  0%{
+    filter: grayscale(0);
+    transform: scale(1);
+  }
+  50%{
+   filter: grayscale(1);
+    transform: scale(1.1);
+    box-shadow:3px 3px 3px black ;
+  }
+  100%{
+   filter: grayscale(0);
+    transform: scale(1);
+  }
+}
+.iconDots{
+  z-index:1;
+  bottom: -1rem;
+  right: 0;
+  animation-name: dots;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+@keyframes dots{
+0%{
+  transform: translateY(0px);
+}
+50%{
+  transform: translateY(-15px);
+}
+100%{
+  transform: translateY(0px);
+}
+}
+.icon-cube{
+  z-index: 1;
+  top:-0.8rem;
+  right: 1em;
+  animation-name:cube;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+@keyframes cube {
+  0%{ 
+      transform: translateY(0px) rotateY(0deg);
+  }
+  50%{
+      transform: translateY(20px) rotateY(180deg);
+  }
+  100%{
+      transform: translateY(0px) rotateY(360deg);
+  }  
+}
+.icon-circle{
+  z-index: 1;
+  left: 0;
+  bottom: 0;
+  animation-name: circle;
+  animation-timing-function: linear;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+@keyframes circle {
+  0%{
+    left: 0;
+    bottom: 0;
+  }
+  50%{
+    left: 3%;
+    bottom: 8%;
+  }
+  100%{
+    left: 0;
+    bottom: 0;
+  }
+  
+}
+.icon-plus{
+  z-index: 1;
+  top:0.8rem;
+  right: 50%;
+  animation-name:plus;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+@keyframes plus{
+  0%{ 
+      transform: translateY(0px);
+  }
+  50%{
+      transform: translateY(-25px);
+  }
+  100%{
+      transform: translateY(0px);
+  }  
+}
+.iconZigZag{
+  z-index: 1;
+  top:1.5rem;
+  left: -2em;
+  animation-name: line ;
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+}
+@keyframes line{
+  50%{
+      left: 1%;
+      top:2%
+  }
+} 
+.project-section{
+  background-color: rgb(213,213,213);
+  margin: 4rem;
+}
+.page-header{
+  color:#e84949;
+  font-size: 90px;
+  text-align:center;
+  padding-top: 30px;
+}
+.project-container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+}
+.project-card{
+  width: 90%;
+  height: 550px;
+  background-image: url(./projects/Project1.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  box-shadow: 0px 0px 40px #1f1f1f;
+}
+.project-card::after{
+  content:"";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #1f1f1f9a;
+  z-index: 0;
+  /* transform: scaleX(1); */
+}
+.project-card::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:linear-gradient(45deg,#343d68,#343d68be,#343d687c);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: all 0.4s;
+  z-index: 1;
+}
+.project-card:hover::before{
+  transform: scaleX(1);
+}
+.project-number{
+  position: absolute;
+  font-size: 200px;
+  font-weight: 600;
+  color: white;
+  z-index: 2;
+  /* display: none; */
+  opacity: 0;
+}
+.project-card:hover .project-number{
+  /* display: block; */
+  opacity: 1;
+}
+.project-number-left{
+  right:-1%;
+  top:-7.5%;
+}
+.project-number-right{
+  left:1%;
+  top:-7%;
+}
+.project-content{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 2em;
+  bottom: 9%;
+  z-index: 3;
+  gap:1em;
+  transition: all 0.4s;
+}
+.project-content-left{
+     width: 100%;
+    left: 30%;
+}
+.project-content-right{
+      width: 100%;
+    Right: -10%;
+
+}
+.project-skill-container{
+width: 50%;
+display: flex;
+gap: 10px;
+flex-wrap: wrap;
+}
+.projectSkill{
+  width: 10%;
+}
+
+.project-subheading{
+  width: 70%;
+  font-size: 16px;
+  font-style:italic ;
+}
+.btn-grp{
+display: flex;
+gap: 0.9rem;
+align-items: center;
+}
+.icon{
+  cursor:pointer;
+  color:white;
+  font-size: 35px;
+}
+.icon:hover{
+  color: #e84949;
+}
+.project-content:hover{
+  transform: scale(1.05);
+}
+#card2{
+  margin-left: 120px;
+  background-image: url(./projects/Project2.png);
+}
+#card3{
+  background-image: url(./projects/Project3.png);
+}
+#card4{
+  margin-left: 120px;
+  background-image: url(./projects/Project4.png);
+}
+
+.skills-container{
+  position: relative;
+  display: flex;
+  padding: 5rem;
+  margin: 10rem auto;
+  gap:30px;
+}
+.skills-container-left{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.skills-container-right{
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  position: relative;
+  gap: 2rem;
+}
+.skills-faded-text{
+  position: absolute;
+  font-size: 12rem;
+  font-style:bold;
+  color: rgb(231,231,231);
+  bottom: -14rem;
+  right: 1%;
+  user-select: none;
+}
+.blobStyle{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  animation: blobstyl 5s linear infinite;
+  z-index: -1;
+}
+@keyframes blobstyl {
+  50%{
+    top: 54%;
+    left: 56%;
+  }
+}
+.skillsLogo{
+  width: 90px;
+  transition: all 0.5s;
+}
+.skillsLogo:hover{
+  transform: scale(1.2);  
+}
+.skill-heading{
+  font-size: 50px;
+  font-style: bold;
+  color: #e84949;
+  line-height: 50px;
+}
+.caps{
+  font-size: 90px;
+}
+.skill-subheading{
+  margin-top: 1rem;
+  width: 70%;
+  text-align: justify;
+}
+.skill-subheading p{
+  margin: 15px 0;
+}
+.contactus-form-container{
+  width: 100%;
+  background-color: rgb(231,231,231);
+}
+.Contactus-heading{
+  font-size: 5em;
+  color: #e84949;
+  padding-top: 2rem;
+}
+.Contactus-subheading{
+  font-size: 3rem;
+  color: #343d68aa;
+  text-transform: capitalize;
+}
+.contactus-form-container{
+  margin-top:25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form{
+display: flex;
+flex-direction: column;
+gap:30px;
+width: 70%;
+margin: 2rem 5rem;
+
+}
+.formfield-container{
+  width: 100%;
+}
+.formField{
+  width: 100%;
+  height: 42px;
+  padding: 0 2rem;
+  font-size: 18px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px #1f1f1f;
+  font-weight: 500;
+  border: none;
+  margin-top: 30px;
+ 
+}
+.formField-textarea{
+  height: auto;
+  padding-top: 1rem;
+}
+#submit-btn{
+  border: none;
+  font-size: 1.4rem;
+  margin: 1rem 0;
+}
+#submit-btn:hover{
+  scale: 1.2;
+}
+.submit{
+  padding: 0 1rem;
+  font-weight: 1.5rem;
+}
+footer{
+  position: relative;
+  margin-top: -1px;
+  background-color:#343d68;
+  padding: 5rem;
+}
+.footer-wrapper{
+  display: flex;
+  gap:1rem;
+  padding: 1.2rem;
+  justify-content:space-between;
+  align-items: center;
+}
+.footer-faded-text{
+position: absolute;
+left: 0;
+bottom: 0;
+color: #535c87;
+user-select: none;
+font-size: 5em;
+}
+.link-wrapper{
+  display: flex;
+  gap: 1.2rem;
+}
+.link-wrapper div a{
+  color: white;
+  text-decoration: none;
+  transition: all 0.6s;
+}
+.link-wrapper div a:hover{
+  color: #e84949;
+  text-decoration: none;
+}
+.icon-wrapper{
+  display: flex;
+  gap: 1rem;
+}
+  
+@media (min-width: 200px) and (max-width: 425px){
+
+  #card2{
+  margin-left: 0px;
+  }
+#card4{
+  margin-left: 0px;
+}
+.project-container{
+  width: 0;
+  align-items: center;
+}
+.hero-section{
+  width: 0;
+  flex-direction: column-reverse;
+}
+.hero-section-left{
+  width:0;
+}
+}
+
+@media (max-width: 425px) {
+  .container {
+    width: 90%;
+    padding: 0 1rem;
+  }
+
+  .main-nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .logo {
+    height: 60px;
+  }
+
+  .logo-text {
+    font-size: 20px;
+    margin-left: 0;
+  }
+
+  .nav-itms {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0;
+  }
+
+  .hero-section {
+    flex-direction: column-reverse;
+    gap: 2rem;
+    margin: 2rem auto;
+    padding-bottom: 4rem;
+  }
+
+  .hero-section-left {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-section-heading {
+    font-size: 28px;
+  }
+
+  .hero-section-sub-heading {
+    font-size: 32px;
+    line-height: 38px;
+  }
+
+  .hero-section-dec {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  #userImage {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .project-section {
+    margin: 2rem 1rem;
+  }
+
+  .page-header {
+    font-size: 50px;
+  }
+
+  .project-container {
+    width: 100%;
+    padding: 2rem 0;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .project-card {
+    width: 100%;
+    height: 300px;
+  }
+
+  #card2,
+  #card4 {
+    margin-left: 0;
+  }
+
+  .project-number {
+    font-size: 100px;
+  }
+
+  .project-content {
+    padding: 1rem;
+    bottom: 5%;
+  }
+
+  .project-skill-container {
+    width: 100%;
+  }
+
+  .project-subheading {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .skills-container {
+    flex-direction: column;
+    padding: 2rem 1rem;
+    margin: 5rem auto;
+  }
+
+  .skills-container-left,
+  .skills-container-right {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .skills-faded-text {
+    font-size: 5rem;
+    bottom: -5rem;
+  }
+
+  .skill-heading {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .caps {
+    font-size: 50px;
+  }
+
+  .contactus-form-container {
+    padding: 2rem 1rem;
+  }
+
+  .Contactus-heading {
+    font-size: 3rem;
+  }
+
+  .Contactus-subheading {
+    font-size: 1.8rem;
+  }
+
+  form {
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .footer-wrapper {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-faded-text {
+    font-size: 3rem;
+  }
+}
+
+
+
+
+
+  </style>
 </head>
 <body>
 
